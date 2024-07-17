@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">About Me</string>
+    <string name="name">Kevin Nguyen</string>
+    <string name="star_image_description">A yellow star</string>
+    <string name="bio"> Hi, introducing Kevin
+        \n\nKevin is a Technology Consultant with experience delivering large-scale businesses transformation projects. With over 5 years of experience working across with technology strategy and implementation across various industries.
+        \n\nKevin has developed the skills required to successfully deliver technology implementations including project management, process analysis, systems architecture, software development &amp; implementation, change management and sourcing.
+        \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis risus mi, vitae mattis massa malesuada sed. Phasellus scelerisque urna non rhoncus bibendum. Etiam consectetur commodo arcu, sed blandit est iaculis sit amet.
+        \n\nCras nec euismod lorem. Etiam tempus libero non odio ultricies, ac venenatis enim pulvinar. Integer pretium tortor leo, et egestas erat varius pellentesque. Quisque varius et dui convallis dignissim.
+        \n\nProin orci elit, blandit a lacus eu, auctor malesuada enim. Maecenas dignissim, est eu fringilla bibendum, purus nulla hendrerit diam, in condimentum massa mauris vitae lorem.
+        \n\nNunc sodales libero nec faucibus malesuada. Morbi volutpat augue elit, sollicitudin vehicula nisl convallis non. Praesent ultrices ex sed ante aliquam consequat. Curabitur in dui vestibulum, laoreet metus vitae, fermentum odio.
+        \n\nAliquam erat volutpat. In fringilla lectus nibh, et aliquam erat gravida et. Aliquam nisi purus, condimentum id tincidunt quis, suscipit id enim.
+    </string>
+    <string name="nickname_hint">What is your nickname?</string>
+    <string name="done">Done</string>
+</resources>
