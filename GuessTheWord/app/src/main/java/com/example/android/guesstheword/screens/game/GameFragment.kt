@@ -17,12 +17,15 @@
 package com.example.android.guesstheword.screens.game
 
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import androidx.navigation.fragment.findNavController
@@ -50,31 +53,35 @@ class GameFragment : Fragment() {
             false
         )
 
-        binding.correctButton.setOnClickListener {
-            viewModel.onCorrect()
-            updateScoreText()
-            updateWordText()
-        }
-        binding.skipButton.setOnClickListener {
-            viewModel.onSkip()
-            updateScoreText()
-            updateWordText()
-        }
-        updateScoreText()
-        updateWordText()
+        binding.gameViewModel = viewModel
+        binding.setLifecycleOwner(this)
+
+        viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer { hasFinished ->
+            if (hasFinished) {
+                gameFinished()
+                val currentScore = viewModel.score.value ?: 0
+                val action = GameFragmentDirections.actionGameToScore(currentScore)
+                findNavController().navigate(action)
+                viewModel.onGameFinishComplete()
+            }
+        })
+
+        viewModel.currTimer.observe(viewLifecycleOwner, { newTime ->
+            binding.timerText.text = DateUtils.formatElapsedTime(newTime)
+        })
+
         return binding.root
     }
 
     private fun gameFinished() {
-        val action = GameFragmentDirections.actionGameToScore(viewModel.score)
-        findNavController().navigate(action)
+//        val action = GameFragmentDirections.actionGameToScore(viewModel.score.value ?: 0)
+//        findNavController().navigate(action)
+        Toast.makeText(this.activity, "Game Finished", Toast.LENGTH_SHORT).show()
     }
 
-    private fun updateWordText() {
-        binding.wordText.text = viewModel.word
-    }
+//    private fun updateWordText() {
+//        binding.wordText.text = viewModel.word.value
+//    }
 
-    private fun updateScoreText() {
-        binding.scoreText.text = viewModel.score.toString()
-    }
+
 }
