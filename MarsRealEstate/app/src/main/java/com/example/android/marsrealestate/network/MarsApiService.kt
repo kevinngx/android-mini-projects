@@ -63,5 +63,7 @@ interface MarsApiService {
  * A public Api object that exposes the lazy-initialized Retrofit service
  */
 object MarsApi {
-    val retrofitService : MarsApiService by lazy { retrofit.create(MarsApiService::class.java) }
+    val retrofitService : MarsApiService by lazy {
+      retrofit.create(MarsApiService::class.java)
+    }
 }
