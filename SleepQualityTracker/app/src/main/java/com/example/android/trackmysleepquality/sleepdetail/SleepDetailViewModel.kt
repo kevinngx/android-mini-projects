@@ -33,9 +33,6 @@ class SleepDetailViewModel(
   private val sleepNightKey: Long = 0L,
   dataSource: SleepDatabaseDao) : ViewModel() {
 
-  /**
-   * Hold a reference to SleepDatabase via its SleepDatabaseDao.
-   */
   val database = dataSource
 
 
